@@ -13,5 +13,4 @@ class NmapResultModel(BaseModel):
 
 
 class ScanArgs(BaseModel):
-    ip_address: str
-    port_range: str
+    hostname: str
