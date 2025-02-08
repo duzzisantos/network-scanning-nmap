@@ -5,12 +5,12 @@ from models.NmapModel import ScanArgs
 
 def nmap_port_scan(item: ScanArgs):
     try:
-        is_valid = ip_validator(item.ip_address)
-        if item.ip_address.__ne__("") and item.port_range.__ne__("") and is_valid:
+        if item.ip_address.__ne__("") and item.port_range.__ne__(""):
 
             ## Initialize port scanner if IP address and port range are provided
             nm = nmap.PortScanner()
             nm.scan(item.ip_address, item.port_range)
+            nm.command_line()
 
             ## Response body
             scan_information = nm.scaninfo()

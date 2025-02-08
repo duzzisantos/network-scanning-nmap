@@ -5,8 +5,7 @@ from models.NmapModel import ScanArgs
 
 def nmap_port_states(item: ScanArgs):
     try:
-        is_valid = ip_validator(item.ip_address)
-        if is_valid and item.ip_address.__ne__("") and item.port_range.__ne__(""):
+        if item.ip_address.__ne__("") and item.port_range.__ne__(""):
             nm = nmap.PortScanner()
 
             if len(nm.all_hosts()) > 0:
